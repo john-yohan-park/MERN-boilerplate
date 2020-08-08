@@ -1,0 +1,20 @@
+const express = require('express')
+const router  = new express.Router()
+const quarter = require('../controllers/quarter')
+
+router.route('/all').get(quarter.getAll)
+router.route('/all_quarters').get(quarter.getAllQuarters)
+router.route('/present').get(quarter.getPresent)
+router.route('/quarters').get(quarter.getQuarters)
+router.route('/years').get(quarter.getYears)
+router.route('/services/service_owners').get(quarter.getServices)
+router.route('/services/role').get(quarter.getByRole)
+router.route('/services/upload_one').post(quarter.addOneService)
+router.route('/services/update_one').put(quarter.updateOneService)
+router.route('/services/delete_one').post(quarter.deleteOneService)
+router.route('/services/update_services').put(quarter.updateServices)
+router.route('/services/add_services').put(quarter.addServices)
+router.route('/services/delete_services').delete(quarter.deleteServices)
+router.route('/services/randomize').put(quarter.randomizeServices)
+
+module.exports = router
